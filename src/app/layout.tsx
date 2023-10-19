@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import ThemeRegistry from '../../theme/ThemeRegistry'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +16,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <ThemeRegistry>
+        <body
+          className={`${inter.className} antialiased`}
+          style={{
+            height: '100%',
+            width: '100%',
+            scrollBehavior: 'smooth'
+          }}
+        >
+          {children}
+        </body>
+      </ThemeRegistry>
     </html>
   )
 }
