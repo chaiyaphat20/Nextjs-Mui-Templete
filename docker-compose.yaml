@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  clinet:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nextjs-mui
+    container_name: nextjs-mui-container
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      NEXTAUTH_URL: http://localhost:3000
+      NEXT_PUBLIC_ENV: PRD

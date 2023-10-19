@@ -106,3 +106,48 @@ npx husky add .husky/pre-commit "npm run pre-commit"
       </ThemeRegistry>
     </html>
 ```
+
+## 9.สร้าง file .env และ .env.example ที่root
+```
+NEXT_PUBLIC_ENV=DEV  #สำหรับ ฝั่ง clinet เวลาใช้ก็ window_.env._NEXT_PUBLIC_ENV
+NEXTAUTH_URL=http://localhost:8000 #สำหรับ ฝั่ง server เวลา เรียกใช้ก้ process.env.NEXTAUTH_URL
+```
+
+## 10.สร้าง type สำหรับ env client
+
+
+## 11.สร้าง Dockerfile and docker-compose.yaml  (ดูในโปรเจค)
+## 12. สร้าง file config\config.ts
+```
+interface Config {
+  NEXT_PUBLIC_ENV?: string;
+}
+
+let Config: Config = {};
+if (process.env.NODE_ENV === 'production') {
+  Config = {
+    NEXT_PUBLIC_ENV: '$NEXT_PUBLIC_ENV' //$NEXT_PUBLIC_ENV env บน docker จะติด $ มาด้วย
+  };
+} else {
+  Config = {
+    NEXT_PUBLIC_ENV: process.env.NEXT_PUBLIC_ENV
+  };
+}
+export default Config;
+```
+
+## 14 สร้างfile  (ดูในโปรเจค)
+## 15.แก้ scrips ที่ package.json สำหรับการ build
+```
+"scripts": {
+    ...
+    "build": "NODE_ENV=production APP_ENV=production next build",
+    "build-for-windows": "SET NODE_ENV=production SET APP_ENV=production && next build",
+  },
+```
+
+## 16.1 ทดสอบ รัน ในเครื่อง แบบ dev  (http://localhost:3000/)
+```
+npm run dev
+```
+จะได้ NEXT_PUBLIC_ENV= DEV
