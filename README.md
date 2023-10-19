@@ -160,3 +160,9 @@ docker-compose up
 npm start
 ```
 จะได้ NEXT_PUBLIC_ENV= PRD
+
+
+## 17 กรณี git commit -m "" แล้ว ขึ้น hint: The '.husky/pre-commit' hook was ignored because it's not set as executable. ใช้คำสั่ง
+```
+chmod ug+x .husky/*
+```
