@@ -26,6 +26,7 @@
 ```
 "devDependencies": {
     ...
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
     "husky": "^8.0.3",
     "jest": "29.6.4",
     "lint-staged": "^14.0.1",
