@@ -1,25 +1,25 @@
-'use client';
+'use client'
 
-import { red } from '@mui/material/colors';
-import CssBaseline from '@mui/material/CssBaseline';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Kanit } from 'next/font/google';
-import * as React from 'react';
-import { NextAppDirEmotionCacheProvider } from './EmotionCache';
+import { red } from '@mui/material/colors'
+import CssBaseline from '@mui/material/CssBaseline'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { Kanit } from 'next/font/google'
+import * as React from 'react'
+import { NextAppDirEmotionCacheProvider } from './EmotionCache'
 
 //>>Add type
 declare module '@mui/material/styles' {
   interface Palette {
-    myAwesomeColor: string;
+    myAwesomeColor: string
   }
   interface PaletteOptions {
-    myAwesomeColor: string;
+    myAwesomeColor: string
   }
 }
 
 declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
-    myAwesomeColor: true;
+    myAwesomeColor: true
   }
 }
 
@@ -27,7 +27,7 @@ const kanit = Kanit({
   weight: ['300', '400', '500', '700'],
   style: ['normal'],
   subsets: ['latin']
-});
+})
 
 const theme = createTheme({
   typography: {
@@ -47,12 +47,12 @@ const theme = createTheme({
       main: red.A400
     }
   }
-});
+})
 
 export default function ThemeRegistry({
   children
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <NextAppDirEmotionCacheProvider options={{ key: 'mui' }}>
@@ -61,5 +61,5 @@ export default function ThemeRegistry({
         {children}
       </ThemeProvider>
     </NextAppDirEmotionCacheProvider>
-  );
+  )
 }

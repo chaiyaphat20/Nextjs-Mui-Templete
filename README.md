@@ -85,5 +85,5 @@
 ## 7.ใช้คำสั่ง เพื่อ generates file .husky  และ setting command ที่ต้องรัน เมื่อพิมพ์ git commit -m
 ```
 npm run prepare
-npx husky add .husky/pre-commit "pre-commit"
+npx husky add .husky/pre-commit "npm run pre-commit"
 ```
