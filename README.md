@@ -136,7 +136,7 @@ if (process.env.NODE_ENV === 'production') {
 export default Config;
 ```
 
-## 14 สร้างfile  (ดูในโปรเจค)
+## 14 สร้างfile next-start.sh  (ดูในโปรเจค)
 ## 15.แก้ scrips ที่ package.json สำหรับการ build
 ```
 "scripts": {
@@ -151,3 +151,10 @@ export default Config;
 npm run dev
 ```
 จะได้ NEXT_PUBLIC_ENV= DEV
+
+## 16.1 ทดสอบ รัน ในเครื่อง แบบ PRD เครื่อง windows ใช้ docker (http://localhost:3000/)
+```
+docker-compose up
+npm start
+```
+จะได้ NEXT_PUBLIC_ENV= PRD
