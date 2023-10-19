@@ -88,3 +88,21 @@
 npm run prepare
 npx husky add .husky/pre-commit "npm run pre-commit"
 ```
+
+## 8.เรียกไฟล์ ThemeRegistry.tsx ใน Layout.tsx
+```
+ <html lang="en">
+      <ThemeRegistry>
+        <body
+          className={`${inter.className} antialiased`}
+          style={{
+            height: '100%',
+            width: '100%',
+            scrollBehavior: 'smooth'
+          }}
+        >
+          {children}
+        </body>
+      </ThemeRegistry>
+    </html>
+```
