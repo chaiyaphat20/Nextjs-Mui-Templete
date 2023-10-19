@@ -13,7 +13,7 @@ import TableHead from '@mui/material/TableHead'
 import TablePagination from '@mui/material/TablePagination'
 import TableRow from '@mui/material/TableRow'
 import Typography from '@mui/material/Typography'
-import * as React from 'react'
+import { ChangeEvent, Fragment, useState } from 'react'
 
 function createData(
   name: string,
@@ -47,10 +47,10 @@ function createData(
 
 function Row(props: { row: ReturnType<typeof createData> }) {
   const { row } = props
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
 
   return (
-    <React.Fragment>
+    <Fragment>
       <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
         <TableCell>
           <IconButton
@@ -104,7 +104,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
           </Collapse>
         </TableCell>
       </TableRow>
-    </React.Fragment>
+    </Fragment>
   )
 }
 
@@ -127,8 +127,8 @@ const rows = [
 ]
 
 export default function CollapsibleTable() {
-  const [page, setPage] = React.useState(0)
-  const [rowsPerPage, setRowsPerPage] = React.useState(5)
+  const [page, setPage] = useState(0)
+  const [rowsPerPage, setRowsPerPage] = useState(5)
 
   const currentRows = rows.filter((r, ind) => {
     return ind >= rowsPerPage * page && ind < rowsPerPage * (page + 1)
@@ -138,9 +138,7 @@ export default function CollapsibleTable() {
     setPage(newPage)
   }
 
-  const handleChangeRowsPerPage = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement>) => {
     setRowsPerPage(parseInt(event.target.value, 10))
     setPage(0)
   }
