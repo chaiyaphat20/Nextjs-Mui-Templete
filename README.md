@@ -146,6 +146,8 @@ export default Config;
   },
 ```
 
+## 17 File ใช้ที่ต้องการใช้ Config.env ให้ใส่ 'use client' บนสุดของ file.tsx
+
 ## 16.1 ทดสอบ รัน ในเครื่อง แบบ dev  (http://localhost:3000/)
 ```
 npm run dev

@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import ThemeRegistry from '../../theme/ThemeRegistry'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <ThemeRegistry>
         <body
-          className={`${inter.className} antialiased`}
+          className={`antialiased`}
           style={{
             height: '100%',
             width: '100%',
